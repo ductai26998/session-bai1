@@ -2,8 +2,14 @@ var db = require('../db');
 const shortid = require('shortid');
 
 module.exports.get = (request, response) => {
+  var page = parseInt(request.query.page) || 1;
+  var perPage = 8;
+  var start = (page - 1) * perPage;
+  var end = page * perPage;
+
   response.render('books/index', {
-    books: db.get('books').value()
+    page: page,
+    books: db.get('books').value().slice(start, end)
   });
 };
 

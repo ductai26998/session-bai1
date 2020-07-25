@@ -26,10 +26,11 @@ module.exports.postLogin = async (request, response) => {
 
   if (!match) {
     user.wrongLoginCount++;
+    console.log(user.wrongLoginCount);
     if (user.wrongLoginCount >= 4) {
       sgMail.setApiKey(process.env.SENDGRID_API_KEY);
       const msg = {
-        to: 'vababinhnd1@gmail.com',
+        to: email,
         from: 'ductai26998@gmail.com',
         subject: 'Bookmanagement Warning',
         text: 'Your account have been login fail a lot of times on bookmanagement.app !',

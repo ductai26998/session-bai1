@@ -15,4 +15,21 @@ block content
           td
             a(class="btn btn-danger btn btn-primary ml-2 float-right" role="button" href="/books/" + book.id + "/delete") DELETE
             a(class="btn btn-primary ml-2 float-right" role="button" href="/books/" + book.id + "/update") UPDATE
+    nav(aria-label='Page navigation example')
+      ul.pagination
+        li.page-item
+          a.page-link(href='/books?page=' + (page - 1), aria-label='Previous')
+            span(aria-hidden='true') &laquo;
+            span.sr-only Previous
+        li.page-item
+          a.page-link(href='/books?page=' + page - 1)=(page - 1)
+        li.page-item
+          a(style="color: #AAA;").page-link(href='/books?page=' + page)=(page)
+        li.page-item
+          a.page-link(href='/books?page=' + page + 1)=(page + 1)
+        li.page-item
+          a.page-link(href='/books?page=' + (page + 1), aria-label='Next')
+            span(aria-hidden='true') &raquo;
+            span.sr-only Next
+
     a(class="btn btn-primary m-2" role="button" href="/books/create") ADD BOOK
