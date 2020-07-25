@@ -3,8 +3,11 @@
 
 // we've started you off with Express (https://expressjs.com/)
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
+require('dotenv').config();
+console.log(process.env);
 const express = require("express");
 var cookieParser = require("cookie-parser");
+
 const app = express();
 
 var db = require('./db');
@@ -25,7 +28,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'))
-app.use(cookieParser("hssuhgfsagfgsfgbkjf125"));
+app.use(cookieParser(process.env.SESSION_SECRET));
 
 app.use('/books',authMiddleware.requireAuth, bookRoute);
 app.use('/users',authMiddleware.requireAuth, userRoute);
@@ -40,3 +43,4 @@ app.get("/", (request, response) => {
 const listener = app.listen(port, () => {
   console.log("Your app is listening on port " + port);
 });
+
