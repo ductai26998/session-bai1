@@ -403,49 +403,77 @@
   ],
   "users": [
     {
-      "name": "Nguyễn Đức Nhân",
-      "id": "N6YTTrB_Z",
-      "email": "vababinhnd1@gmail.com",
-      "password": "$2b$10$84lq62IuTVd2MtblX2npru6m63AKTszXckeryLtq8rPxxO4Ts22q.",
-      "isAdmin": "false",
-      "wrongLoginCount": 0
-    },
-    {
       "name": "Tài",
       "phone": "0342138667",
       "id": "pZn_vcP0",
       "email": "tai@gmail.com",
       "password": "$2b$10$84lq62IuTVd2MtblX2npru6m63AKTszXckeryLtq8rPxxO4Ts22q.",
+      "avatar": "updates\\4df191bf67ea47c48077af0eac73f67d",
       "isAdmin": "true",
       "wrongLoginCount": 0
     },
     {
-      "name": "tan",
-      "phone": "0909090",
-      "email": "tan@gmail.com",
-      "password": "$2b$10$SKOT3xC2p8u1pf4ZDUWI1ubnSYwWWOM512nnNwMU2gh9MN6HLizyO",
-      "id": "6FFZfNqcn",
+      "name": "Nguyễn Đức Tài",
+      "phone": "0328361490",
+      "email": "ductai26998@gmail.com",
+      "password": "$2b$10$mEvnjI6GpH2L9A.yXCZlL.zE10yGVS2Dd70JwN9HSBMsk24w1F.ci",
+      "id": "fjiOb2J5y",
+      "avatar": "updates\\4df191bf67ea47c48077af0eac73f67d",
+      "isAdmin": "false",
+      "wrongLoginCount": 0
+    },
+    {
+      "name": "Nguyen Duc",
+      "phone": "0342138667",
+      "email": "duc@gmail.com",
+      "password": "$2b$10$uV1O7kCr3vxr3A3e3LyTp.LfCzXz8eC1cKFbSZuYifHD8LCiQr7sK",
+      "id": "LvrKam_k0",
+      "avatar": "updates\\978e4c895a9bc509e5d325096ce4cce4",
+      "isAdmin": "false",
+      "wrongLoginCount": 0
+    },
+    {
+      "name": "binh",
+      "phone": "67953",
+      "email": "vababinhnd1@gmail.com",
+      "password": "$2b$10$/GEDibEPvW.eDrFtjTnUX.3O3kpttJQG2ClFy2X7Fdcdu.HA7DTHS",
+      "id": "qZz5HlR-0",
+      "avatar": "updates/a23e676fc8c8397a6393dd8c8edb31a9",
+      "isAdmin": "false",
+      "wrongLoginCount": 0
+    },
+    {
+      "name": "hieu",
+      "phone": "0328361490",
+      "email": "hoan@gmail.com",
+      "password": "$2b$10$cBWxhdtmHd9bIrgAlA2aC.xvxVeYt49eJgCGwSbXTQHx35RrEqkR.",
+      "id": "C9UkHZruq",
+      "avatar": "updates/27e5ad8d0fe04967d58736d202d10caa",
+      "isAdmin": "false",
+      "wrongLoginCount": 0
+    },
+    {
+      "name": "ngu",
+      "phone": "0328361490",
+      "email": "hoan@gmail.com",
+      "password": "$2b$10$XM6f4HYEZqoHytGiQmCG0ePKQyDekadSIj1fwv40gQ9fueToR91aG",
+      "id": "TMFN7W0Y6",
+      "avatar": "updates/avt.jpg",
       "isAdmin": "false",
       "wrongLoginCount": 0
     }
   ],
   "transactions": [
     {
-      "userId": "N6YTTrB_Z",
-      "bookId": "28aca216-6ba5-49c8-93cf-bb8a29f8b092",
-      "id": "tG2uUkLY8",
+      "userId": "pZn_vcP0",
+      "bookId": "e47dc654-69d1-4857-93f1-fa75deb0e14a",
+      "id": "s7lcixdX6",
       "isComplete": "false"
     },
     {
-      "userId": "pZn_vcP0",
-      "bookId": "6519b787-4c08-4720-839e-e0ec9ed78e89",
-      "id": "BvyP3bYJN",
-      "isComplete": "false"
-    },
-    {
-      "userId": "pZn_vcP0",
-      "bookId": "27485509-643c-43d7-8e5b-1b3e9c5971dc",
-      "id": "MEaH2W-eG",
+      "userId": "LvrKam_k0",
+      "bookId": "f7d81a6a-6070-4984-bfd1-725ed92aaf70",
+      "id": "NmVdaJfH8",
       "isComplete": "false"
     }
   ]

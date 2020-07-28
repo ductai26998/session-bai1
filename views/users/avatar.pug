@@ -1,0 +1,8 @@
+extends ../layouts/common
+block content
+	h1 Upload avatar
+	form.d-flex.flex-column(action="/users/" + id + "/profile/avatar", method="POST", enctype="multipart/form-data")
+		.form-group.w-50
+				label(for="avatar") Avatar
+				input#avatar(type="file" class="form-control-file" name="avatar")
+				button(class="btn btn-primary ml-2") Upload

@@ -10,6 +10,7 @@ block content
       thead.thead-dark
         tr
           th(scope='col') ID
+          th(scope="col") AVATAR
           th(scope='col') NAME
           th(scope='col') PHONE
           th(scope='col')
@@ -17,14 +18,16 @@ block content
       each user in users
         tr
           th(scope='row')= user.id
+          td
+            img(src='/' + user.avatar, width="64")
           td= user.name
           td= user.phone
           td
             a(class="btn btn-danger btn btn-primary ml-2 float-right" role="button" href="/users/" + user.id + "/delete") DELETE
-            a(class="btn btn-primary ml-2 float-right" role="button" href="/users/" + user.id + "/update") UPDATE
+            a(class="btn btn-primary ml-2 float-right" role="button" href="/users/" + user.id + "/profile") UPDATE PROFILE
     a(class="btn btn-primary m-2" role="button" href="/users/create") ADD USER
 block footer
   .container-sm
     form(class="d-flex" action="/users/search",method="GET")
       input(class="form-control" type="text", name="q")
-      button(class="btn btn-primary ml-2") FOoter
+      button(class="btn btn-primary ml-2") search
