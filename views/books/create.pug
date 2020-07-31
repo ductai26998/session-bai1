@@ -1,8 +1,13 @@
 extends ../layouts/common
 block content
 	.container-sm.m-5
-		form(class="d-flex" action="/books/create" method="POST")
+		form(class="d-flex-column" action="/books/create" method="POST", enctype="multipart/form-data")
 			div(class="input-group-prepend")
 				span(class="input-group-text" id="inputGroup-sizing-default") Book's title
 			input(type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="title")
+
+			div(class="input-group-prepend")
+				span(class="input-group-text" id="inputGroup-sizing-default") Book's cover
+			input(type="file" class="form-control-file" name="cover")
+
 			button(class="btn btn-primary ml-2") ADD

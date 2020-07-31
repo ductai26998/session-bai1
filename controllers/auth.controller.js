@@ -10,6 +10,8 @@ module.exports.postLogin = async (request, response) => {
 	var email = request.body.email;
 	var password = request.body.password;
   var user = db.get('users').find({email: email}).value();
+  var sessionId = request.signedCookies.sessionId;
+  var session = db.get('sessions').find({id: sessionId}).value();
 
   if (!user) {
   	response.render('auth/login', {
@@ -37,7 +39,7 @@ module.exports.postLogin = async (request, response) => {
         html: '<strong>Your account have been login fail a lot of times on bookmanagement.app !</strong>',
       };
       sgMail.send(msg).then(() => {
-          console.log('Message sent');
+          console.log('Message sent');  
       }).catch((error) => {
           console.log(error.response.body);
           // console.log(error.response.body.errors[0].message)
@@ -56,12 +58,20 @@ module.exports.postLogin = async (request, response) => {
     return;
   }
 
+  if (user.cart) {
+    Object.assign(user.cart, session.cart);
+  }
+  db.get('users').find({email: email}).update('cart', user.cart).write();
+
 	response.cookie("userId", user.id, {
     signed: true
   });
-  response.redirect('/transactions');
+  response.redirect('/books');
 };
 
-
+module.exports.logout = (request, response) => {
+  response.clearCookie("userId");
+  response.redirect('/');
+}
 
 

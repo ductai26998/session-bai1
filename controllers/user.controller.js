@@ -43,6 +43,7 @@ module.exports.postCreate = (request, response) => {
   }
   request.body.isAdmin = "false";
   request.body.wrongLoginCount = 0;
+  request.body.cart = {};
   bcrypt.hash(request.body.password, 10, function(err, hash) {
       // Store hash in your password DB.
       console.log(hash);
@@ -109,3 +110,4 @@ module.exports.postAvatar = async (request, response) => {
   }
   response.redirect('/users/' + id + '/profile');
 };
+

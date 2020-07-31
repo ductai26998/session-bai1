@@ -17,6 +17,18 @@ module.exports.requireAuth = (request, response, next) => {
 		return;
 	}
 
+	if (user.isAdmin !== "true") {
+		response.render('error/index');
+	}
+
+	response.locals.user = user;
+
+	next();
+}
+
+module.exports.setLocalUser = (request, response, next) => {
+	var user = db.get('users').find({id: request.signedCookies.userId}).value();
+
 	response.locals.user = user;
 
 	next();

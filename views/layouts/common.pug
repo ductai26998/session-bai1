@@ -18,6 +18,12 @@ html
 				if user
 					li(class="nav-item")
 						span(class="nav-link")=user.name
+					li(class="nav-item")
+						a(href="auth/logout") Logout
+				li(class="nav-item")
+					a(class="nav-link" href="/cart/" + cartId) Cart 
+						span=numberBookInCart
+
 				
 		block content
 		block footer

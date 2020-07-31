@@ -15,7 +15,10 @@ var bookRoute = require('./routes/book.route');
 var userRoute = require('./routes/user.route');
 var transactionRoute = require('./routes/transaction.route');
 var authRoute = require('./routes/auth.route');
+var cartRoute = require('./routes/cart.route')
+
 var authMiddleware = require('./middlewares/auth.middleware');
+var sessionMiddleware = require('./middlewares/session.middleware');
 
 var port = 3000;
 
@@ -29,11 +32,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'))
 app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(sessionMiddleware);
 
-app.use('/books',authMiddleware.requireAuth, bookRoute);
-app.use('/users',authMiddleware.requireAuth, userRoute);
-app.use('/transactions',authMiddleware.requireAuth, transactionRoute);
+app.use('/books', authMiddleware.setLocalUser, bookRoute);
+app.use('/users', authMiddleware.requireAuth, userRoute);
+app.use('/transactions', authMiddleware.requireAuth, transactionRoute);
 app.use('/auth', authRoute);
+app.use('/cart', cartRoute);
 
 app.get("/", (request, response) => {
   response.render('index');

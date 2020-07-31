@@ -1,0 +1,19 @@
+extends ../layouts/common
+block content
+	.container-sm
+		h2 CART
+	.container-sm
+		table.table
+			thead.thead-dark
+				tr
+					th(scope="col") Cover
+					th(scope='col') Title
+					th(scope='col')
+			tbody
+			each book in books
+				tr
+					td
+						img(src=book.cover, width="64")
+					td= book.title
+	.container-sm
+		a(class="btn btn-primary ml-2 float-right" role="button" href="/cart/" + cartId + "/borrow") BORROW

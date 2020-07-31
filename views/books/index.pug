@@ -1,35 +1,43 @@
 extends ../layouts/common
 block content
   .container-sm
+    form(class="d-flex" action="/books/search",method="GET")
+      input(class="form-control" type="text", name="q")
+      button(class="btn btn-primary ml-2") SEARCH
+  .container-sm
     table.table
       thead.thead-dark
         tr
-          th(scope='col') ID
+          th(scope='col') Cover
           th(scope='col') BOOk
           th(scope='col')
       tbody
       each book in books
         tr
-          th(scope='row')= book.id
+          td
+            img(src=getCoverUrl(book.cover), width="50")
           td= book.title
           td
-            a(class="btn btn-danger btn btn-primary ml-2 float-right" role="button" href="/books/" + book.id + "/delete") DELETE
-            a(class="btn btn-primary ml-2 float-right" role="button" href="/books/" + book.id + "/update") UPDATE
+            if isAdmin()
+              a(class="btn btn-danger btn btn-primary ml-2 float-right" role="button" href="/books/" + book.id + "/delete") DELETE
+              a(class="btn btn-primary ml-2 float-right" role="button" href="/books/" + book.id + "/update") UPDATE
+            else
+              a(class="btn btn-primary btn btn-primary ml-2 float-right" role="button" href="/cart/" + book.id + "/add") ADD TO CART
     nav(aria-label='Page navigation example')
-      ul.pagination
-        li.page-item
-          a.page-link(href='/books?page=' + (page - 1), aria-label='Previous')
-            span(aria-hidden='true') &laquo;
-            span.sr-only Previous
-        li.page-item
-          a.page-link(href='/books?page=' + page - 1)=(page - 1)
-        li.page-item
-          a(style="color: #AAA;").page-link(href='/books?page=' + page)=(page)
-        li.page-item
-          a.page-link(href='/books?page=' + page + 1)=(page + 1)
-        li.page-item
-          a.page-link(href='/books?page=' + (page + 1), aria-label='Next')
-            span(aria-hidden='true') &raquo;
-            span.sr-only Next
+    ul.pagination
+      li.page-item
+        a.page-link(href='/books?page=' + (page - 1), aria-label='Previous')
+          span(aria-hidden='true') &laquo;
+          span.sr-only Previous
+      li.page-item
+        a.page-link(href='/books?page=' + (page - 1))=(page - 1)
+      li.page-item
+        a.page-link(style="color: #AAA;", href='/books?page=' + page)=(page)
+      li.page-item
+        a.page-link(href='/books?page=' + (page + 1))=(page + 1)
+      li.page-item
+        a.page-link(href='/books?page=' + (page + 1), aria-label='Next')
+          span(aria-hidden='true') &raquo;
+          span.sr-only Next
 
     a(class="btn btn-primary m-2" role="button" href="/books/create") ADD BOOK
